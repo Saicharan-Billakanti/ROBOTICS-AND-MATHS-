@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Assistant Robotic Arm for Injection</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding-top: 4rem; }
+    nav { margin-bottom: 2rem; }
+    section { padding-top: 2rem; padding-bottom: 2rem; }
+    .section-title { margin-bottom: 1rem; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: .25rem; white-space: pre-wrap; }
+    .media-half {
+      width: 50%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">MedAssist Arm</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
+          <li class="nav-item"><a class="nav-link" href="#toc">Table of Contents</a></li>
+          <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="#literature">Literature Review</a></li>
+          <li class="nav-item"><a class="nav-link" href="#methodology">Methodology</a></li>
+          <li class="nav-item"><a class="nav-link" href="#results">Results & Discussion</a></li>
+          <li class="nav-item"><a class="nav-link" href="#demo">Demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
+          <li class="nav-item"><a class="nav-link" href="#references">References</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- 1. Abstract -->
+    <section id="abstract">
+      <h2 class="section-title">1. Abstract</h2>
+      <p>This project develops a robotic arm system for precise shoulder injections using a combination of computer vision (camera calibration, injection-point detection, ArUco markers) and optimization algorithms (ADAM, LM optimizer). It focuses on ensuring accuracy, safety, and automation in medical procedures. The goal is to assist healthcare professionals by improving the precision of intramuscular injections and minimizing human error. The system is built with affordability and accessibility in mind, utilizing open-source tools like OpenCV and low-cost hardware such as a 5-DOF robotic arm. This project also aims to explore the future integration of AI-based decision-making and haptic feedback for enhanced patient care.</p>
+    </section>
+
+    <!-- 3. Introduction -->
+    <section id="introduction">
+      <h2 class="section-title">3. Introduction</h2>
+      <p>The MedAssist Arm project is motivated by the growing demand for precision and consistency in medical procedures. Injections administered by humans can vary significantly depending on skill, experience, and conditions. This can lead to complications like incorrect dosage delivery, pain, or nerve injury. By incorporating robotics and computer vision, we aim to automate this procedure while maintaining high accuracy.</p>
+      <p>This system leverages real-time image processing to detect the human arm and identify a safe injection point. Using inverse kinematics and optimization algorithms, the robotic arm aligns and performs the injection movement. The proposed system is cost-effective, reliable, and adaptable, making it suitable for rural healthcare centers, vaccination camps, and training environments.</p>
+      <ul>
+        <li>Checkerboard-based camera calibration for spatial accuracy.</li>
+        <li>Real-time injection-point detection via contour analysis.</li>
+        <li>ArUco marker pose estimation to map image to world coordinates.</li>
+        <li>Forward/inverse kinematics solved with ADAM and Levenberg–Marquardt.</li>
+      </ul>
+      <img src="intro.png" class="img-fluid my-3 media-half" alt="System Overview">
+    </section>
+
+    <!-- Additions to Results -->
+    <section id="results">
+      <h2 class="section-title">6. Results and Discussion</h2>
+      <ul>
+        <li>Mean positional error: 5 mm, which is within safe tolerance for intramuscular injections.</li>
+        <li>Angular error: less than 2°, showing reliable pose estimation and kinematics.</li>
+        <li>Optimization convergence time reduced by 40% using ADAM over traditional gradient descent.</li>
+        <li>Successful hardware demonstration on a silicone arm model, showcasing real-time tracking and execution.</li>
+      </ul>
+      <p>Our results show that the system can operate in real-world scenarios with limited tuning. It remains stable even under minor lighting variations and arm orientations. Future iterations can include patient-specific anatomical modeling for improved safety.</p>
+      <img src="result.png" class="img-fluid my-3 media-half" alt="Results Graph">
+    </section>
+
+    <!-- Additions to Demo -->
+    <section id="demo">
+      <h2 class="section-title">7. Demo of Simulation and/or Hardware</h2>
+      <video controls src="demo_hardware.mp4" class="img-fluid my-3 media-half">
+        Your browser does not support embedded videos.
+      </video>
+      <p>The demonstration includes a live injection simulation on a synthetic arm model. The webcam identifies the arm region and computes the injection point. The robotic arm then executes the movement autonomously, adjusting orientation and height using real-time feedback. The video demonstrates robustness and accuracy, even when minor occlusions or lighting changes occur.</p>
+    </section>
+
+    <!-- Additions to Conclusion -->
+    <section id="conclusion">
+      <h2 class="section-title">8. Conclusion & Future Work</h2>
+      <p>The MedAssist Arm demonstrates reliable, automated injection capabilities and represents a significant step toward medical robotics in affordable healthcare. With successful detection, calibration, and precision control, the system validates our approach to reducing manual variability in injection procedures.</p>
+      <p>Future directions include:</p>
+      <ul>
+        <li>Integrating haptic feedback for pressure-sensitive injections.</li>
+        <li>Exploring deep learning models for markerless limb tracking and segmentation.</li>
+        <li>Adapting to dynamic patients by incorporating real-time motion compensation.</li>
+        <li>Performing clinical trials to assess system safety, usability, and patient satisfaction.</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
